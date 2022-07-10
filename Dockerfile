@@ -16,7 +16,7 @@ ENV FLUTTER_HOME="/home/$USER/flutter"
 ENV FLUTTER_WEB_PORT="8090"
 ENV FLUTTER_DEBUG_PORT="42000"
 ENV FLUTTER_EMULATOR_NAME="flutter_emulator"
-ENV PATH="$ANDROID_SDK_ROOT/cmdline-tools/tools/bin:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/platforms:$PATH"
+ENV PATH="$ANDROID_SDK_ROOT/cmdline-tools/tools/bin:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/platforms:$FLUTTER_HOME/bin:$PATH"
 
 # install all dependencies
 ENV DEBIAN_FRONTEND="noninteractive"
@@ -59,4 +59,4 @@ RUN curl -o flutter.tar.xz $FLUTTER_URL \
   && yes "y" | flutter doctor --android-licenses \
   && flutter doctor \
   && flutter emulators --create \
-  && flutter update-packages \
+  && flutter update-packages 
